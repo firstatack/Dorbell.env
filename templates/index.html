@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timbre Virtual</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 1.2em;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        button:active {
+            background-color: #004085;
+        }
+
+        button:disabled {
+            background-color: #ccc;
+            cursor: default;
+        }
+    </style>
+</head>
+<body>
+    <h1>Timbre Virtual</h1>
+    <button id="boton-timbre">Llamar al Timbre</button>
+
+    <script>
+        const botonTimbre = document.getElementById('boton-timbre');
+
+        botonTimbre.addEventListener('click', () => {
+            botonTimbre.disabled = true;
+            botonTimbre.textContent = "Timbrando...";
+
+            fetch('/timbre', {
+                method: 'POST'
+            })
+            .then(response => {
+                if (!response.ok) {
+                    return response.json().then(err => { throw new Error(err.error) });
+                }
+                return response.json();
+            })
+            .then(data => {
+                alert(data.message);
+            })
+            .catch(error => {
+                alert(error.message || "Error al llamar al timbre.");
+            })
+            .finally(() => {
+                botonTimbre.disabled = false;
+                botonTimbre.textContent = "Llamar al Timbre";
+            });
+        });
+    </script>
+</body>
+</html>

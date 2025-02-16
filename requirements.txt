@@ -1,0 +1,3 @@
+requests
+Flask
+python-dotenv # Para cargar variables de entorno y desde .env
