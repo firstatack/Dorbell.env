@@ -23,11 +23,11 @@ Como veis hay un fronted y un backend , desde el fronted se genera una peticion 
 
 Descargais el repo y os creais un fichero .env con el siguiente contenido.
 
-SINRIC_API_KEY=TU API KEY
-SINRIC_DEVICE_ID= ID DEL DISPOSITIVO
-SINRIC_PORTAL_ID=que lo mas logico seria portal
-SINRIC_TOKEN_ID=tu token
+- SINRIC_API_KEY=TU API KEY
+- SINRIC_DEVICE_ID= ID DEL DISPOSITIVO
+- SINRIC_PORTAL_ID=que lo mas logico seria portal
+- SINRIC_TOKEN_ID=tu token
 
 Con todo ya preparado lo subis a pythonanywhere y configurais como indica pythonanywhere.
 
-P.D.:Yo no encontraba el TOKEN directamente en la web de sinric, asi que me puse a capturar la peticion que se hace desde la web  al presionar el timbre ahi os debe aparecer como TOKEN BEARER.
+P.D.:Yo no encontraba el TOKEN directamente en la web de sinric, asi que me puse a capturar la peticion que se hace desde la web  al presionar el timbre ahi os debe aparecer como TOKEN BEARER.(aplicando tecnicas recien aprendidas pero muy utiles)
